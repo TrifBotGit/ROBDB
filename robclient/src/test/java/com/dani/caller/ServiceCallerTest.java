@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import org.junit.Test;
 
 import com.dani.command.Command;
-import com.dani.model.Monster;
+import com.dani.model.MonsterDTO;
 
 public class ServiceCallerTest {
 	
@@ -18,7 +18,7 @@ public class ServiceCallerTest {
 	public void testServiceCaller() throws MalformedURLException, IOException{
 		caller = ServiceCallerSingleton.returnInstance();
 		Command command = new Command("!monster hey");
-		Monster monster = caller.callService(command);
+		MonsterDTO monster = caller.callService(command);
 		assertThat(monster.getName().equals("hey"));
 	}
 

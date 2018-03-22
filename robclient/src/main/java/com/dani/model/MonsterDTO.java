@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class Monster {
+public class MonsterDTO {
 
 	private String name;
 

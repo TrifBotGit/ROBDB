@@ -31,6 +31,7 @@ public class Monster {
 		MonsterDTO dto = new MonsterDTO();
 		dto.setId(this.id);
 		dto.setName(this.name);
+		dto.setSpecie(this.specie);
 		dto.setElements(this.elements);
 		dto.setAilments(this.ailments);
 		dto.setWeaknesses(this.weaknesses);
@@ -40,7 +41,8 @@ public class Monster {
 
 	public void fromDto(MonsterDTO dto) {
 		this.setId(dto.getId());
-		this.setName(this.getName());
+		this.setName(dto.getName());
+		this.setSpecie(dto.getSpecie());
 		this.setElements(dto.getElements());
 		this.setAilments(dto.getAilments());
 		this.setWeaknesses(dto.getWeaknesses());

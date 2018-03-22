@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.dani.command.Command;
-import com.dani.model.Monster;
+import com.dani.model.MonsterDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -17,14 +17,14 @@ public class ServiceCaller {
 	
 	private Gson gson;
 	
-	Monster monster;
+	MonsterDTO monster;
 	
 	Reader reader;
 	
-	public Monster callService(Command command) throws MalformedURLException, IOException{
+	public MonsterDTO callService(Command command) throws MalformedURLException, IOException{
 		reader = new InputStreamReader(new URL(serviceURI + command.getEndPoint() + "/" + command.getVariable()).openStream());
 		gson = new GsonBuilder().create();
-		monster = gson.fromJson(reader, Monster.class);
+		monster = gson.fromJson(reader, MonsterDTO.class);
 		return monster;
 	}
 

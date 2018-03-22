@@ -6,7 +6,9 @@ import java.net.MalformedURLException;
 import com.dani.caller.ServiceCaller;
 import com.dani.caller.ServiceCallerSingleton;
 import com.dani.command.Command;
-import com.dani.model.Monster;
+import com.dani.formatter.Formatter;
+import com.dani.formatter.FormatterSingleton;
+import com.dani.model.MonsterDTO;
 import com.dani.utils.BotUtils;
 
 import sx.blah.discord.api.events.EventSubscriber;
@@ -14,9 +16,11 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 
 public class MyEvents {
 	
-	Monster monster;
+	MonsterDTO monster;
 	
 	ServiceCaller caller;
+	
+	Formatter formatter;
 	
 	@EventSubscriber
     public void onMessageReceived(MessageReceivedEvent event) throws MalformedURLException, IOException{
@@ -27,7 +31,8 @@ public class MyEvents {
         		System.out.println(command.getEndPoint() + " - " + command.getVariable());
         		caller = ServiceCallerSingleton.returnInstance();
         		monster = caller.callService(new Command(event.getMessage().getContent()));
-        		BotUtils.sendMessage(event.getChannel(), monster.toString());
+        		formatter = FormatterSingleton.returnInstance();
+        		BotUtils.sendMessage(event.getChannel(), formatter.buildMonsterResponse(monster));
         	}else{
         		
         	}
