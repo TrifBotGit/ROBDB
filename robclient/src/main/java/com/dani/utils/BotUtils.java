@@ -20,7 +20,7 @@ public class BotUtils {
 
     }
 	
-	static void sendMessage(IChannel channel, String message){
+	static public void sendMessage(IChannel channel, String message){
 
         // This might look weird but it'll be explained in another page.
         RequestBuffer.request(() -> {

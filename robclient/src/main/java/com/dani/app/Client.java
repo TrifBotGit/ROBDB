@@ -1,14 +1,10 @@
 package com.dani.app;
 
+import com.dani.events.MyEvents;
 import com.dani.utils.BotUtils;
 
-import events.MyEvents;
 import sx.blah.discord.api.IDiscordClient;
 
-/**
- * Hello world!
- *
- */
 public class Client {
 	public static void main(String[] args) {
 		if (args.length != 1) {
